@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CalculaTec: calculadoras e conversores gratuitos para cálculos rápidos de engenharia, estudos e dia a dia.">
+  <title>CalculaTec | Ferramentas de cálculo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <nav class="nav container">
+    <a class="brand" href="#"><span>Calcula</span>Tec</a>
+    <a class="nav-link" href="#ferramentas">Ferramentas</a>
+  </nav>
+  <div class="container hero-content">
+    <p class="eyebrow">FERRAMENTAS GRATUITAS</p>
+    <h1>Cálculos práticos.<br><strong>Resultados imediatos.</strong></h1>
+    <p class="subtitle">Conversores e calculadoras para estudantes, técnicos e profissionais.</p>
+    <a class="button" href="#ferramentas">Escolher uma ferramenta ↓</a>
+  </div>
+</header>
+
+<main class="container">
+  <section id="ferramentas">
+    <div class="section-heading">
+      <div><p class="eyebrow">CALCULATEC</p><h2>O que você precisa calcular?</h2></div>
+      <p>Selecione uma ferramenta e informe os valores.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="icon">⇄</div><h3>Conversor de unidades</h3>
+        <p>Comprimento, massa e temperatura.</p>
+        <label>Categoria<select id="convCategory"><option value="length">Comprimento</option><option value="mass">Massa</option><option value="temp">Temperatura</option></select></label>
+        <div class="row">
+          <label>Valor<input id="convValue" type="number" value="1" step="any"></label>
+          <label>De<select id="convFrom"></select></label>
+          <label>Para<select id="convTo"></select></label>
+        </div>
+        <button onclick="convertUnits()">Converter</button>
+        <div class="result" id="convResult">Informe os valores e clique em Converter.</div>
+      </article>
+
+      <article class="card">
+        <div class="icon">◉</div><h3>Calculadora de pressão</h3>
+        <p>Use a relação pressão = força ÷ área.</p>
+        <div class="formula">P = F / A</div>
+        <div class="row">
+          <label>Força (N)<input id="pressureForce" type="number" step="any" placeholder="Ex.: 1000"></label>
+          <label>Área (m²)<input id="pressureArea" type="number" step="any" placeholder="Ex.: 0,5"></label>
+        </div>
+        <button onclick="calcPressure()">Calcular</button>
+        <div class="result" id="pressureResult">Resultado em pascal (Pa).</div>
+      </article>
+
+      <article class="card">
+        <div class="icon">ϟ</div><h3>Calculadora de potência</h3>
+        <p>Potência mecânica a partir de força e velocidade.</p>
+        <div class="formula">P = F × v</div>
+        <div class="row">
+          <label>Força (N)<input id="powerForce" type="number" step="any" placeholder="Ex.: 500"></label>
+          <label>Velocidade (m/s)<input id="powerVelocity" type="number" step="any" placeholder="Ex.: 2"></label>
+        </div>
+        <button onclick="calcPower()">Calcular</button>
+        <div class="result" id="powerResult">Resultado em watt (W).</div>
+      </article>
+
+      <article class="card">
+        <div class="icon">□</div><h3>Área e volume</h3>
+        <p>Retângulo e paralelepípedo.</p>
+        <label>Tipo<select id="geometryType"><option value="area">Área do retângulo</option><option value="volume">Volume do paralelepípedo</option></select></label>
+        <div class="row">
+          <label>Comprimento (m)<input id="geoLength" type="number" step="any"></label>
+          <label>Largura (m)<input id="geoWidth" type="number" step="any"></label>
+          <label id="heightWrap">Altura (m)<input id="geoHeight" type="number" step="any"></label>
+        </div>
+        <button onclick="calcGeometry()">Calcular</button>
+        <div class="result" id="geoResult">Informe as dimensões.</div>
+      </article>
+
+      <article class="card wide">
+        <div class="icon">%</div><h3>Porcentagem e regra de três</h3>
+        <p>Calcule uma porcentagem ou resolva uma proporção direta.</p>
+        <div class="tabs">
+          <button class="tab active" data-tab="percent">Porcentagem</button>
+          <button class="tab" data-tab="rule">Regra de três</button>
+        </div>
+        <div id="percentPanel">
+          <div class="row">
+            <label>Valor base<input id="percentBase" type="number" step="any" placeholder="Ex.: 200"></label>
+            <label>Porcentagem (%)<input id="percentRate" type="number" step="any" placeholder="Ex.: 15"></label>
+          </div>
+          <button onclick="calcPercent()">Calcular porcentagem</button>
+        </div>
+        <div id="rulePanel" hidden>
+          <div class="row four">
+            <label>A<input id="ruleA" type="number" step="any"></label>
+            <label>B<input id="ruleB" type="number" step="any"></label>
+            <label>C<input id="ruleC" type="number" step="any"></label>
+            <label>X<input value="?" disabled></label>
+          </div>
+          <button onclick="calcRule()">Calcular X</button>
+        </div>
+        <div class="result" id="mathResult">Escolha uma opção e informe os valores.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>Simples, direto e gratuito.</h2>
+    <p>O CalculaTec foi criado para oferecer ferramentas de cálculo rápidas e acessíveis. Sempre confira os dados e as unidades antes de utilizar resultados em aplicações técnicas ou profissionais.</p>
+  </section>
+</main>
+
+<footer><div class="container">© <span id="year"></span> CalculaTec · Ferramentas gratuitas de cálculo</div></footer>
+<script src="script.js"></script>
+</body>
+</html>
